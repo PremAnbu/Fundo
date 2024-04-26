@@ -29,10 +29,14 @@ export class NoteCardComponent implements OnInit {
 
   handleNoteIconsClick(action: string, note: any) {
     if(action=="archive"){
-      //api
       this.updateList.emit({action:action, data:note});
     }
-    //handle click event
+    else if(action=="trash"){
+      this.updateList.emit({action:action,data:note})
+    }
+    // else if(action=="color"){
+    //   this.updateList.emit((action:action,note:any))
+    // }
   }
 
 }

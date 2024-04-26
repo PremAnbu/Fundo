@@ -48,6 +48,7 @@ img {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     height: 100%;
+    background-color: rgba(255, 254, 254, 0.836);
 }
 
 .search-icon {
@@ -89,7 +90,8 @@ img {
 .right-icons {
     display: flex;
     align-items: center;
-    gap: 10px; /* Add gap between icons */
+    gap: 15px; /* Add gap between icons */
+    margin-left: 180px;
 }
 .right-icon-end {
     display: flex;

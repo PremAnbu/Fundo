@@ -14,7 +14,17 @@ export class NotesService {
   addNoteApiCall(data:any){
     return this.httpService.addNoteApi(data)
   }
-  updateNoteApiCall(data:any){
-    return this.httpService.updateNoteApi(data)
+  // updateNoteApiCall(data:any){
+  //   return this.httpService.updateNoteApi(data)
+  // }
+  trashNoteApiCall(noteId: number){
+    return this.httpService.trashNoteApi(noteId)
   }
+  archiveNoteApiCall(noteId: number){
+    return this.httpService.archiveNoteApi(noteId)
+  }
+  colorNoteApiCall(noteId: number,color:string){
+    return this.httpService.colorNoteApi(noteId,color)
+  }
+
 }

@@ -13,11 +13,18 @@
       <mat-icon svgIcon="color-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
       <mat-icon svgIcon="image-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
       <mat-icon svgIcon="archive-icon" (click)="handleNoteIconsClick('archive',note)" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-      <mat-icon svgIcon="more-icon" [matMenuTriggerFor]="moreMenu" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      <mat-icon svgIcon="more-icon" [matMenuTriggerFor]="menu" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
     </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <span (click)="handleNoteIconsClick('trash',note)">Delete note</span>
+      </button>
+      <button mat-menu-item disabled>
+        <span>Add label</span>
+      </button>
+      <button mat-menu-item disabled>
+        <span>Make a copy</span>
+      </button>
+    </mat-menu>
   </div>
-  
 </div>
-<mat-menu #moreMenu="matMenu">
-  <span>delete</span>
-</mat-menu>

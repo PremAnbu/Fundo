@@ -26,6 +26,14 @@
     }
   } 
 }
+.note-icons mat-icon:hover{
+  background-color: #ebe6e6;
+  border-radius: 50%;
+}
+.pin-icon:hover{
+  background-color: #ece8e8;
+  border-radius: 50%;
+}
 
 .pin-icon {
   cursor: pointer;
@@ -36,7 +44,6 @@
   margin-right: -10px;
   align-self: flex-end;
 }
-
 
 .note-icons {
   display: flex;
@@ -60,9 +67,9 @@
   margin-bottom: 30px;/* Set the flex direction to column */
 }
 
-
 .sample-text {
   font-size: 14px;
   color: #333;
   display: block; /* Display spans as block elements */
 }
+

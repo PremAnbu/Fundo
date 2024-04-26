@@ -25,7 +25,16 @@ export class HttpService {
   addNoteApi(data:any): Observable<any>{
     return this.httpclient.post("https://localhost:7004/api/Notes",data,{headers:this.authHeader})
   }
-  updateNoteApi(data:any): Observable<any>{
-    return this.httpclient.put("https://localhost:7004/api/Notes",data,{headers:this.authHeader})
+  // updateNoteApi(data:any): Observable<any>{
+  //   return this.httpclient.put("https://localhost:7004/api/Notes",data,{headers:this.authHeader})
+  // }
+  trashNoteApi(noteId: number): Observable<any> {
+    return this.httpclient.delete(`https://localhost:7004/api/Notes?noteId=${noteId}`, { headers: this.authHeader });
+  }
+  archiveNoteApi(noteId: number): Observable<any> {
+    return this.httpclient.put(`https://localhost:7004/api/Notes/UpdateArchiveByNoteId?noteId=${noteId}`, { headers: this.authHeader });
+  }
+  colorNoteApi(noteId: number,colour: string): Observable<any> {
+    return this.httpclient.put(`https://localhost:7004/api/Notes/UpdateColourByNoteId?noteId=${noteId}&colour=${colour}`, { headers: this.authHeader });
   }
 }

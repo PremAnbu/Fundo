@@ -26,6 +26,15 @@ export class NotesContainerComponent implements OnInit {
      // this.notesList=[...this.notesList,$event.data] // if you return only one object format that time newly created note not able to add so use ... create one array to store old all the notes after that at last newly created note addad
     }
     else if($event.action=="archive"){
+      this.NotesService.archiveNoteApiCall($event.data.userNotesId).subscribe((res : any) => {
+        console.log(res);
+      },err => console.log(err))
+      this.notesList=this.notesList.filter((ele:any)=>ele.userNotesId!=$event.data.userNotesId)
+    }
+    else if($event.action=="trash"){
+         this.NotesService.trashNoteApiCall($event.data.userNotesId).subscribe((res : any) => {
+          console.log(res);
+        },err => console.log(err))
       this.notesList=this.notesList.filter((ele:any)=>ele.userNotesId!=$event.data.userNotesId)
     }
   }
