@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+}
+
+.box {
+    padding: 13px;
+    box-shadow: 0px 2px 5px rgb(111, 106, 106)  ;
+    border-radius: 10px;
+    width: 550px; /* Increase the width */
+    margin-left: 300px;
+    margin-top: 80px;
+}
+
+.note-icons-cnt {
+    display: flex;
+    gap: 30px; 
+    margin-top: 93px;  
+    margin-left: -150px;   
+}
+
+.mat-icon{
+    width:20px;
+    height:20px;
+}
+.notes-cnt{
+    padding: 10px;
+   // border: 2px solid #000;
+    border-radius: 10px;
+    width: 550px; /* Increase the width */
+    height:100px;
+    margin-left: 640px;
+    margin-top: 83px;
+    box-shadow: 0px 2px 5px rgb(111, 106, 106)  ;
+}
+
+.notes-cnt input {
+    display: block; /* Display inputs as block elements */
+    margin-bottom: 12px; /* Add some bottom margin to create space between inputs */
+    font-size: 15px;
+}
+
+
+.icons{
+    display: flex;
+    direction: row;
+    gap: 30px; 
+    margin-top: 20px;
+}
+
+.close-button{
+    margin-top: -10px;
+    margin-left: 160px;
+
+}
+    
+.notes-cnt input {
+    border: none;
+    outline: none; /* Optional: removes the outline when input is focused */
+}

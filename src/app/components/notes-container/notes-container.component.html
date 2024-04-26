@@ -1,0 +1,2 @@
+<app-create-note (updateList)=handelUpdateNotesList($event)></app-create-note><!-- () => for child to parent-->
+<app-note-card [notesData]="notesList" (updateList)="handelUpdateNotesList($event)"></app-note-card> <!-- [] => for parent to child-->

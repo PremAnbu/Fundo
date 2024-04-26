@@ -1,0 +1,24 @@
+.main-cnt{
+    height: 100vh;
+    width: 260px;
+    border: none;
+}
+.main{
+    width: 200px;
+}
+.side-nav-icon-lable-cnt{
+    border-radius: 0px 40px 40px 0px;
+    height:40px;
+    width: 250px;
+    display: flex;
+    padding: 10px 0px 0px 10px;
+    gap: 30px;
+}  
+.side-nav-icon-lable-cnt:hover{
+background-color: #feefc3;
+}
+.side-nav-icon-lable-cnt span{
+    font-size: 15px;
+    padding: 7px;
+}
+

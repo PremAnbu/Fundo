@@ -1,0 +1,61 @@
+<div class="signup-cnt" [formGroup]="signinForm">
+    <div class="form-content">
+        <span class="fundoo-text" style="font-weight: 600;">Fundoo</span><br>
+        <span class="sign-text" style="font-weight: 500; margin-top: -30px;">Create your Fundoo Account</span><br>
+
+        <div class="names-cnt">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First Name" formControlName="firstName">
+                <mat-error *ngIf="signinForm.get('firstName')?.hasError('required')">First Name is required</mat-error>
+                <mat-error *ngIf="signinForm.get('firstName')?.hasError('pattern')">Incorrect First Name format</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last Name" formControlName="lastName">
+                <mat-error *ngIf="signinForm.get('lastName')?.hasError('required')">Last Name is required</mat-error>
+                <mat-error *ngIf="signinForm.get('lastName')?.hasError('pattern')">Incorrect Last Name format</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="username-cnt">
+            <mat-form-field appearance="outline" class="custom-width">
+                <mat-label>UserName or Email</mat-label>
+                <input matInput placeholder="User Name" formControlName="userName">
+                <mat-error *ngIf="signinForm.get('userName')?.hasError('required')">UserName is required</mat-error>
+                <mat-error *ngIf="signinForm.get('userName')?.hasError('pattern')">Incorrect User Name format</mat-error>
+            </mat-form-field>   
+        </div><br>
+        <span style="font-size: small; font-weight: bold ; margin-top: -20px" class="warning-cnt">You can use letters, numbers & periods</span><br>
+
+        <div class="names-cnt">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" type="password" formControlName="password">
+                <mat-error *ngIf="signinForm.get('password')?.hasError('required')">Password is required</mat-error>
+                <mat-error *ngIf="signinForm.get('password')?.hasError('minlength')">Minimum length of 6 characters is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPassword">
+                <mat-error *ngIf="signinForm.hasError('passwordMismatch')">Passwords do not match</mat-error>
+            </mat-form-field>
+        </div><br>
+
+        <span style="font-size: small; font-weight: bold ;margin-top: -20px;" class="warning-cnt1">Use 8 or more characters with a mix of letters, numbers & symbols</span><br>
+
+        <div class="signin-inst-cnt" style="margin-top: 30px;">
+            <button mat-button color="primary" style="font-weight: bold; margin-right: 210px;">Sign in instead</button>
+            <button mat-raised-button color="primary" (click)="handleSignin()">Register</button>
+        </div>
+    </div>
+
+    <div class="image-section">
+        <img src="assets/AngularSignup.png" alt="Description of the image"><br>
+        <span style= "margin-top: 20px; " class="img-msg"><b>One account. All of Fundo</b></span><br>
+        <span style="margin-left: 50px;"><b>working for You</b></span>
+        
+    </div>
+</div>

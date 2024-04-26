@@ -1,0 +1,99 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    direction: row;
+    border-bottom: 1px solid rgb(241, 237, 177);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    
+}
+
+.header {
+    width: 100%;
+    height: 35px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    box-shadow: none;
+    gap: 100px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-icon {
+    margin-right: 10px;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.header-title {
+    font-size: 25px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    height: 100%;
+}
+
+.search-icon {
+    margin-right: 10px;
+    height: 15px;
+}
+
+.search-input {
+    padding: 5px;
+    border: none; /* Remove border */
+    border-radius: 8px;
+    margin-right: 10px; /* Add gap between icon and input */
+    width: 100%;
+    outline: none;
+}
+
+.refresh-icon {
+    margin-right: 10px;
+}
+
+.settings-icon {
+    margin-right: 10px;
+}
+
+.apps-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.account-initial {
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 8px 10px;
+    color: white;
+    display: inline-block;
+    background-color: green;
+}
+.right-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add gap between icons */
+}
+.right-icon-end {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add gap between icon and initial */
+    margin-left: auto; /* Move to the end */
+}
