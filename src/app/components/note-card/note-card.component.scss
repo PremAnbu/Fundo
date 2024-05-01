@@ -16,12 +16,14 @@
   transition: box-shadow 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  &:hover {
-
+  &:hover { 
     .note-icons{
       visibility: visible;
     }
     .pin-icon{
+      visibility: visible;
+    }
+    .note-trash-icons{
       visibility: visible;
     }
   } 
@@ -71,5 +73,118 @@
   font-size: 14px;
   color: #333;
   display: block; /* Display spans as block elements */
+}
+
+// color icon
+.color-palate-cnt{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 8px;
+  border-radius: 8px;
+  width: 300px;
+  gap:25px;
+
+}
+.col1{
+  background-color: #FFFFFF;
+  border: 1px solid #b1adad;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+.col2{
+  background-color: #FAAFA8;
+  border: 1px solid #FAAFA8;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+.col3{
+  background-color: #F39F76;
+  border: 1px solid #F39F76;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+.col4{
+background-color: #FFF8B8;
+  border: 1px solid #FFF8B8;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+.col5{
+background-color: #E2F6D3;
+  border: 1px solid #E2F6D3;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+
+.col6{
+background-color: #B4DDD3;
+  border: 1px solid #B4DDD3;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+
+.col7{
+background-color: #D4E4ED;
+  border: 1px solid #D4E4ED;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+
+.col8{
+background-color: #AECCDC;
+  border: 1px solid #AECCDC;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+
+.col9{
+background-color: #D3BFDB;
+  border: 1px solid #D3BFDB;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+
+.col10{
+background-color: #F6E2DD;
+  border: 1px solid #F6E2DD;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+.col11{
+background-color: #E9E3D4;
+  border: 1px solid #E9E3D4;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+
+.col12{
+background-color: #EFEFF1;
+  border: 1px solid #EFEFF1;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+}
+// -------------
+.note-trash-icons :hover{
+  visibility: visible;
+}
+.note-trash-icons{
+  visibility: hidden;
+}
+.note-trash-icons mat-icon:hover{
+  background-color: #ebe6e6;
+  border-radius: 50%;
 }
 

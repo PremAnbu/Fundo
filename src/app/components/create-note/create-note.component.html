@@ -1,26 +1,39 @@
-<div *ngIf="!createNote; else createNoteCnt" (click)="handleCreateNote('open')" >
-    <div class="container" >
+<div *ngIf="!createNote; else createNoteCnt" class="container" (click)="handleCreateNote('open')" >
         <span class="box">Take a note...</span>
         <div class="note-icons-cnt">
             <mat-icon svgIcon="list-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
             <mat-icon svgIcon="brush-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
             <mat-icon svgIcon="image-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
         </div>
-    </div>
-    <br>
 </div>
 <ng-template #createNoteCnt>
     <div class="notes-cnt">
-        <input [(ngModel)]="title" type="text" placeholder="Title">
-        <input [(ngModel)]="description" type="text" placeholder="Take a note...">
-        <div class="icons">
+        <div class="create-note-title-cnt">
+            <input [(ngModel)]="title" type="text" placeholder="Title">
+            <mat-icon svgIcon="pin-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+        </div>
+        <textarea [(ngModel)]="description" type="text" placeholder="Take a note..." class="create-note-desc-cnt" ></textarea>
+        <div class="note-icons">
+            <div class="create-note-icons-cnt">
             <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
             <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
             <mat-icon svgIcon="color-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
             <mat-icon svgIcon="image-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
             <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-            <mat-icon svgIcon="more-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+            <mat-icon svgIcon="more-icon" [matMenuTriggerFor]="noteMenu" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+            <mat-icon svgIcon="undo-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+            <mat-icon svgIcon="redo-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+            </div>
             <button class="close-button" mat-button (click)="handleCreateNote('close')">Close</button>
         </div>
-    </div>
+    </div> 
+    
 </ng-template>
+    <mat-menu #noteMenu="matMenu">
+        <div class="more-icon-options">
+
+        <button mat-button>Add Label</button>
+        <button mat-button>Add Drawing</button>
+        <button mat-button>Tick Boxes</button>
+        </div>
+    </mat-menu>

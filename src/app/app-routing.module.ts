@@ -34,7 +34,7 @@ const routes: Routes = [
       {
         path:"trash",
         component: TrashContainerComponent
-      }
+      } 
     ]
   }
 ];

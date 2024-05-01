@@ -1,20 +1,48 @@
 <div class="note-card-outer">
-  <div *ngFor="let note of notesData" class="note-card">
+  <div *ngFor="let note of notesData | search : searchString" class="note-card" [style.backgroundColor]="note.colour" >
    
-    <mat-icon class="pin-icon" svgIcon="pin-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-    <div class="note-content">
+    <mat-icon *ngIf="container !== 'trash' else pinEmt" class="pin-icon" svgIcon="pin-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+    <ng-template #pinEmt></ng-template>
+    <div class="note-content" (click)="handleEditNote(note)">
       <span class="sample-text">{{note.title}} </span>
       <span class="sample-text">{{note.description}} </span>
-
     </div>
+    <div *ngIf="container==='trash' else notesIcons"  class="note-trash-icons">
+      <mat-icon (click)="handleNoteIconsClick('delete', note)" svgIcon="delete-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      <mat-icon (click)="handleNoteIconsClick('trash', note)"svgIcon="restore-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+  </div>
+  <ng-template #notesIcons>
     <div class="note-icons">
       <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
       <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-      <mat-icon svgIcon="color-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      <mat-icon svgIcon="color-icon" [matMenuTriggerFor]="noteCardColourMenu" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
       <mat-icon svgIcon="image-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-      <mat-icon svgIcon="archive-icon" (click)="handleNoteIconsClick('archive',note)" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      <mat-icon  *ngIf="container==='notes' else unArchiveIcon" svgIcon="archive-icon" (click)="handleNoteIconsClick('archive',note)" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      <ng-template #unArchiveIcon>
+        <mat-icon (click)="handleNoteIconsClick('unarchive', note)" svgIcon="unarchive-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+    </ng-template>
       <mat-icon svgIcon="more-icon" [matMenuTriggerFor]="menu" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
     </div>
+  </ng-template>
+<!-- -------- -->
+<mat-menu #noteCardColourMenu="matMenu">
+  <div class="color-palate-cnt">
+  <div class="col1" matTooltip="Default" (click)="handleNoteIconsClick('colour',note,'#ffffff')"></div>
+  <div class="col2" matTooltip="Coral" (click)="handleNoteIconsClick('colour',note,'#FAAFA8')"></div>
+  <div class="col3" matTooltip="Peach" (click)="handleNoteIconsClick('colour',note,'#F39F76')" ></div>
+  <div class="col4" matTooltip="Sand" (click)="handleNoteIconsClick('colour',note,'#FFF8B8')"></div>
+  <div class="col5" matTooltip="Mint" (click)="handleNoteIconsClick('colour',note,'#E2F6D3')"></div>
+  <div class="col6" matTooltip="Sage" (click)="handleNoteIconsClick('colour',note,'#B4DDD3')"></div>
+  <div class="col7" matTooltip="Fog" (click)="handleNoteIconsClick('colour',note,'#D4E4ED')"></div>
+  <div class="col8" matTooltip="Storm" (click)="handleNoteIconsClick('colour',note,'#AECCDC')"></div>
+  <div class="col9" matTooltip="Dusk" (click)="handleNoteIconsClick('colour',note,'#D3BFDB')"></div>
+  <div class="col10" matTooltip="Blossom" (click)="handleNoteIconsClick('colour',note,'#F6E2DD')"></div>
+  <div class="col11" matTooltip="Clay" (click)="handleNoteIconsClick('colour',note,'#E9E3D4')"></div>
+  <div class="col12" matTooltip="Chalk" (click)="handleNoteIconsClick('colour',note,'#EFEFF1')"></div>  
+</div>  
+</mat-menu> 
+<!-- ------- -->
+
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <span (click)="handleNoteIconsClick('trash',note)">Delete note</span>
@@ -27,4 +55,3 @@
       </button>
     </mat-menu>
   </div>
-</div>

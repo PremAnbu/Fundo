@@ -1,1 +1,3 @@
-<p>trash-container works!</p>
+<div class="notes-main-cnt">
+    <app-note-card [container]="'trash'" [notesData]="trashNotesList" (updateList)="updateNotesList($event)"></app-note-card>
+</div>

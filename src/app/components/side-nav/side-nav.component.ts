@@ -8,12 +8,17 @@ import { ARCHIVE_ICON, BRUSH_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, EDIT_IC
 @Component({
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
-  styleUrls: ['./side-nav.component.scss']
+  styleUrls: ['./side-nav.component.scss'],
+  host:{
+    class:"app-sidenav-cnt"
+  }
 })
 export class SideNavComponent implements OnInit , OnDestroy {
 
   isDrawerOpen : boolean=false;
   Subscription!:Subscription;
+  display:string="flex";
+
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer ,private DataService:DataService) {
     iconRegistry.addSvgIconLiteral("note-icon", sanitizer.bypassSecurityTrustHtml(NOTE_ICON)),
     iconRegistry.addSvgIconLiteral("edit-icon", sanitizer.bypassSecurityTrustHtml(EDIT_ICON)),
@@ -23,7 +28,9 @@ export class SideNavComponent implements OnInit , OnDestroy {
   }
   ngOnInit(): void {
     this.Subscription=this.DataService.currDrawerState.subscribe(res => {
-      this.isDrawerOpen=res;
+      this.isDrawerOpen=res
+      this. isDrawerOpen ? this.display="none" : this.display="flex" 
+
     })
   }
   ngOnDestroy(): void {

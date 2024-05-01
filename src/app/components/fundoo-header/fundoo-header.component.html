@@ -7,7 +7,7 @@
         </div>
         <div class="search-container">
             <mat-icon class="search-icon" svgIcon="search-icon" aria-hidden="false" aria-label="Search SVG icon"></mat-icon>
-            <input type="text" class="search-input" placeholder="Search...">
+            <input type="text" class="search-input" [(ngModel)]="searchString" (input)="handleSearchString()"  placeholder="Search...">
         </div>
         <div class="right-icons">
             <mat-icon class="refresh-icon" svgIcon="refresh-icon" aria-hidden="false" aria-label="Refresh SVG icon"></mat-icon>

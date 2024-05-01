@@ -1,10 +1,17 @@
-.main-cnt{
-    height: 100vh;
-    width: 260px;
-    border: none;
+::ng-deep .app-sidenav-cnt{
+    width:100%;
+    height:calc(100vh - 56px);
+    display: flex;
 }
-.main{
-    width: 200px;
+
+.main-cnt {
+    display: flex;
+}
+
+.sidenav-cnt {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
 }
 .side-nav-icon-lable-cnt{
     border-radius: 0px 40px 40px 0px;
@@ -14,6 +21,10 @@
     padding: 10px 0px 0px 10px;
     gap: 30px;
 }  
+
+//--------------
+
+
 .side-nav-icon-lable-cnt:hover{
 background-color: #feefc3;
 }
@@ -21,4 +32,32 @@ background-color: #feefc3;
     font-size: 15px;
     padding: 7px;
 }
+//--------------------
+.drawer-router-outlet-cnt{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.close-drawer-cnt{
+    width:calc(5% - 40px);
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding: 15px 20px;
+    align-items: center;
+}
+.close-drawer{
+    // border: 2px solid red;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+}
+.close-drawer mat-icon{
+    padding-left: 8px;
+}
+.close-drawer:hover{
+background-color: #feefc3;}
+
 

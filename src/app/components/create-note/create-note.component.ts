@@ -2,22 +2,23 @@ import { NotesService } from './../../services/noteService/notes.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ARCHIVE_ICON, BRUSH_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, IMG_ICON, LIST_VIEW_ICON, MORE_ICON, NOTE_ICON, PIN_ICON, REMINDER_ICON, TRASH_ICON } from 'src/assets/svg-icons';
+import { ARCHIVE_ICON, BRUSH_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, IMG_ICON, LIST_VIEW_ICON, MORE_ICON, NOTE_ICON, PIN_ICON, REDO_ICON, REMINDER_ICON, TRASH_ICON, UNDO_ICON } from 'src/assets/svg-icons';
 
 @Component({
   selector: 'app-create-note',
   templateUrl: './create-note.component.html',
-  styleUrls: ['./create-note.component.scss']
+  styleUrls: ['./create-note.component.scss'],
+  host:{
+    class:"app-create-note-cnt"
+  }
 })
 export class CreateNoteComponent implements OnInit {
 
   title: string = ""
   description: string = ""
-
   createNote : boolean=false;
 
-
-@Output() updateList=new EventEmitter<any>()
+  @Output() updateList=new EventEmitter<any>()
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private notesService:NotesService) {
     iconRegistry.addSvgIconLiteral("list-icon", sanitizer.bypassSecurityTrustHtml(LIST_VIEW_ICON)),
@@ -29,6 +30,8 @@ export class CreateNoteComponent implements OnInit {
     iconRegistry.addSvgIconLiteral("pin-icon", sanitizer.bypassSecurityTrustHtml(PIN_ICON))
     iconRegistry.addSvgIconLiteral('archive-icon', sanitizer.bypassSecurityTrustHtml(ARCHIVE_ICON))
     iconRegistry.addSvgIconLiteral('more-icon', sanitizer.bypassSecurityTrustHtml(MORE_ICON))
+    iconRegistry.addSvgIconLiteral('undo-icon', sanitizer.bypassSecurityTrustHtml(UNDO_ICON))
+    iconRegistry.addSvgIconLiteral('redo-icon', sanitizer.bypassSecurityTrustHtml(REDO_ICON)) 
   }
 
   ngOnInit(): void {
@@ -36,14 +39,12 @@ export class CreateNoteComponent implements OnInit {
 
   handleCreateNote(action:string){
       this.createNote=!this.createNote
-    if(action=='close')
+    if(action=='close' || this.title==="" || this.description==="")
       {
         this.notesService.addNoteApiCall({title:this.title,description:this.description,colour:"#ffffff"})
                          .subscribe(res=>{
         console.log(res);
-
-        this.updateList.emit(res.data)
-
+        this.updateList.emit({action:"create",data:res.data})
         this.title=""
         this.description=""
       },err=>{console.log(err);
@@ -59,9 +60,5 @@ export class CreateNoteComponent implements OnInit {
     //   "isPinned": true,
     //   "isDeleted": true
     // }
-
   }
-
-
-
 }

@@ -14,6 +14,7 @@ export class FundooHeaderComponent implements OnInit, OnDestroy {
 
   isDrawerOpen:boolean=false;
   subscription!:Subscription;
+  searchString:string=''
 
   constructor(private domSanitizer: DomSanitizer, 
               private matIconRegistry: MatIconRegistry,
@@ -34,8 +35,11 @@ export class FundooHeaderComponent implements OnInit, OnDestroy {
   HandelToggleDrawer(){
     console.log("toggle drawer");
     this.dataService.toggleDrawerState(!this.isDrawerOpen);
-    // this.isDrawerOpen = !this.isDrawerOpen;
   }
+
+  handleSearchString(){
+    this.dataService.updateSearchString(this.searchString)
+ }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

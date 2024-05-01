@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatMenuModule } from '@angular/material/menu';
 import { CreateNoteComponent } from './components/create-note/create-note.component';
 import { FundooHeaderComponent } from './components/fundoo-header/fundoo-header.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
@@ -24,7 +25,10 @@ import { ArchiveContainerComponent } from './components/archive-container/archiv
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NoteCardComponent } from './components/note-card/note-card.component';
-import {MatMenuModule} from '@angular/material/menu';
+import { SearchPipe } from './pipe/search.pipe';
+import { EditnoteComponent } from './components/edit-note/editnote/editnote.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -40,7 +44,9 @@ import {MatMenuModule} from '@angular/material/menu';
     TrashContainerComponent,
     ArchiveContainerComponent,
     DashboardComponent,
-    NoteCardComponent
+    NoteCardComponent,
+    SearchPipe,
+    EditnoteComponent
   ],
   imports: [
     FormsModule,
@@ -55,8 +61,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatDatepickerModule,
     ReactiveFormsModule,
     MatSidenavModule,
-    MatMenuModule
-
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
